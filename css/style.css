@@ -1,0 +1,68 @@
+@font-face { font-family: 'GeneralSans-Variable'; src: url('../fonts/GeneralSans-Variable.woff2') format('woff2'), url('../fonts/GeneralSans-Variable.woff') format('woff'), url('../fonts/GeneralSans-Variable.ttf') format('truetype'); font-weight: 200 700; font-display: swap;font-style: normal;}
+:root{
+    --viridian: #6b9080ff;
+    --cambridge-blue: #a4c3b2ff;
+    --mint-green: #cce3deff;
+    --azure-web: #eaf4f4ff;
+    --mint-cream: #f6fff8ff;
+
+    --general-sans: 'GeneralSans-Variable';
+}
+body{
+    font-family: var(--general-sans);
+    background-color: var(--azure-web);
+    /* background-image: url('../images/background2.jpeg'); 
+    filter: blur(50%);  */
+} 
+h1 {
+    color: var(--viridian);
+}
+legend{
+    color: var(--viridian);
+}  
+.login{
+    background-color: white;
+    width: 30%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 5%;
+    padding: 20px;
+}
+.loginItem{
+    margin-bottom: 5%;
+}
+
+.login button:hover {
+    background-color: #c3fefc; 
+}
+#email, #password, #button {
+    width: 99%;
+    height: 85%;
+    box-sizing: border-box; 
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid #3333335d;
+    outline: none;
+}
+#email:hover, #password:hover, #email:focus, #password:focus 
+{
+    border: 2px solid #04938c;
+    
+}
+
+#button:hover 
+{
+    background-color: #005854;
+}
+#button {
+    background-color: var(--viridian);
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+div h1{
+    text-align: center;
+}
+

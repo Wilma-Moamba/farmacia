@@ -1,0 +1,198 @@
+@font-face { font-family: 'GeneralSans-Variable'; src: url('../fonts/GeneralSans-Variable.woff2') format('woff2'), url('../fonts/GeneralSans-Variable.woff') format('woff'), url('../fonts/GeneralSans-Variable.ttf') format('truetype'); font-weight: 200 700; font-display: swap;font-style: normal;}
+:root{
+    --viridian: #6b9080ff;
+    --cambridge-blue: #a4c3b2ff;
+    --mint-green: #cce3deff;
+    --azure-web: #eaf4f4ff;
+    --mint-cream: #f6fff8ff;
+
+    --general-sans: 'GeneralSans-Variable';
+}
+body{
+    font-family: var(--general-sans);
+    background-color: var(--viridian);
+}
+.main-div{
+    background-color: var(--mint-cream);
+    margin: 30px;   
+    border-radius: 10px;
+}
+.navbar{
+
+}
+.navbar-items{
+    display: flex;
+    background-color: #FFFFFF;
+    padding: 15px;
+    justify-content: center;
+    list-style-type: none;
+    border-radius: 10px;
+}
+
+.navbar-items li {
+    flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.navbar-items li a {
+    text-decoration: none;
+    padding: 16px;
+    color: var(--viridian);
+}
+.navbar-items li a:hover {
+    background-color: var(--cambridge-blue);
+}
+.subMain-div{
+    margin-left: 17px;
+    
+}
+.subSubMain-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+.blocos{
+    flex: 1;
+    margin-left: 60px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 30px; */
+}
+.registar{
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 5px var(--mint-green);
+    padding: 20px 0px;
+}
+.notificacoes{
+    margin-top: 15px;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 5px var(--mint-green);
+    border-radius: 10px;
+}
+.gerir{
+    background-color: #FFFFFF;
+    flex: 1;
+    margin-right: 60px;
+    margin-top: 40px;
+    box-shadow: 1px 1px 5px var(--mint-green);
+    border-radius: 10px;
+    padding: 20px;
+}
+form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form div{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+form div input{
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #8888883a;
+    outline: none;
+    border-radius: 5px;
+}
+form div input:hover, form div input:focus{
+    border: 1px solid #888888;
+}
+form div legend {
+    font-size: 12px;
+    display: flex;
+    align-self: flex-start;
+}
+form div button{
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--cambridge-blue);
+    color: #FFFFFF;
+    border: none;
+}
+form div button:hover{
+  background-color: var(--viridian);
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ table tr th{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .25px;
+    text-align: left;
+    padding: 0 5px;
+ }
+
+ table tr.item td{
+    border-bottom: 1px solid #c8cacc;
+    padding: 0 5px;
+ }
+
+ table tr.item{
+    height: 30px;
+ }
+
+ table tr td{
+    vertical-align: middle;
+    width: 20%;
+    font-size: 12px;
+    font-weight: 400;
+ }
+
+table tr td .buttonYes{
+    font-size: 10px;
+    max-width: 90px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e2ddea;
+    border: 2px solid #e2ddea;
+    border-radius: 5px;
+    background-color: var(--viridian);
+    padding: 8px 10px;
+    min-height: 20px;
+}
+table tr td .buttonNo{
+    font-size: 10px;
+    max-width: 90px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e2ddea;
+    border: 2px solid #e2ddea;
+    border-radius: 5px;
+    background-color: #db1919c1;
+    padding: 8px 10px;
+    min-height: 20px;
+}
+.buttonYes:hover{
+  background-color: #51be51;
+}
+.buttonNo:hover{
+    background-color: #f12405;
+}
+h4 {
+    color: var(--viridian);
+}

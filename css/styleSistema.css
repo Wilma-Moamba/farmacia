@@ -1,0 +1,371 @@
+@font-face { font-family: 'GeneralSans-Variable'; src: url('../fonts/GeneralSans-Variable.woff2') format('woff2'), url('../fonts/GeneralSans-Variable.woff') format('woff'), url('../fonts/GeneralSans-Variable.ttf') format('truetype'); font-weight: 200 700; font-display: swap;font-style: normal;}
+:root{
+    --viridian: #6b9080ff;
+    --cambridge-blue: #a4c3b2ff;
+    --mint-green: #cce3deff;
+    --azure-web: #eaf4f4ff;
+    --mint-cream: #f6fff8ff;
+
+    --general-sans: 'GeneralSans-Variable';
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.layout{
+    display: flex;
+}
+.navbar *{
+    /* background-color: #04938c; */
+    background-color: var(--cambridge-blue);
+    height: 70px;
+    padding-left: 20%;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: var(--general-sans);
+    size: 30px;
+}
+.menu{
+    background-color: #023735;
+    width: 15%;
+    height: 100vh;   
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.menu-items {
+    margin-left: 0%;
+    height: 50%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+}
+
+.menu-items li{
+    
+    height: 50%;
+    color: white;
+    /* margin: 10px 0;
+    background-color: azure; */
+    
+}
+.menu-items li a{
+    
+    color: white;
+    /* margin: 10px 0;
+    background-color: azure; */
+    
+}
+.menu-items li:hover {
+    background-color: #7daba9;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: black; /* Ajuste conforme necessário */
+    display: block; /* Faz com que o link ocupe toda a área do li */
+}
+
+/* Servicos */
+.servicos{
+    flex: 5;
+    display: flex;  
+    
+}
+.servico{
+    flex-direction: inline;
+    background-color: #04938c;
+    color: #fff;
+    margin-left: 2%;
+    margin-top: 30px;
+    padding: 16px;
+    border-radius: 10px;
+    height: 220px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+}
+.InserirServicos{
+    flex: 5;
+    /* background-color: white;
+    width: 300%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5%;
+    padding: 20px; */
+}
+.divServico{
+    background-color: white;
+    width: 300%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5%;
+    padding: 20px;
+}
+.servicoItem{
+    margin-bottom: 5px;
+}
+#nomeServico, #buttonMarcar, #problema, #tempoProblema, #dataConsulta {
+    width: 250px;
+    height: 20px;
+    box-sizing: border-box; 
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#buttonMarcar {
+    background-color: #04938c;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    margin-left: 0px;
+    margin-top: 0px;
+    /* margin-right: 200px; */
+}
+.titulo{
+    align-items: center;
+    color: #023735;
+}
+#button {
+    background-color: #023735;
+    color: #fff;
+    border: none;
+    width: 95%;
+    height: 40px;
+    border-radius: 15px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+}
+
+/* registo */
+.registo{
+    flex: 5;
+    /* background-color: white;
+    width: 300%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5%;
+    padding: 20px; */
+}
+.divRegisto{
+    background-color: white;
+    width: 300%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5%;
+    padding: 20px;
+}
+.registoItem{
+    margin-bottom: 5px;
+}
+
+#nomeAntibiotico, #buttonRegistar, #miligramas, #quantidade {
+    width: 250px;
+    height: 20px;
+    box-sizing: border-box; 
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+#buttonRegistar {
+    background-color: #04938c;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    margin-top: 3px;
+
+} 
+
+/* marcar */
+.InserirServicos{
+    flex: 5;
+}
+
+.novoAntibiotico{
+    margin-left: 900px;
+    margin-top: 30px;
+}
+
+.buttonNovoAntibiotico{
+    color: #e2ddea;
+    background-color: #39d939;
+    width: 100px;
+    height: 40px;
+    border: none;
+    font-size: 22;
+}
+.buttonNovoAntibiotico:hover, .buttonYes:hover, .buttonNo:hover{
+    background-color: #9ce49c;
+}
+
+/* visualizar  marcar */
+.visualizarMarcacoes{
+    flex: 5;
+}
+
+
+/* table */
+.visualizarMarcacoes{
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ .visualizarMarcacoes tr th{
+    height: 56px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .25px;
+    text-align: left;
+    padding: 0 10px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+ .visualizarMarcacoes tr.item td{
+    border-bottom: 1px solid #c8cacc;
+    padding: 0 10px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+ .visualizarMarcacoes tr.item{
+    height: 60px;
+ }
+
+ .visualizarMarcacoes tr td{
+    vertical-align: middle;
+    width: 20%;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+.visualizarMarcacoes tr td .buttonYes{
+    font-size: 14px;
+    max-width: 90px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e2ddea;
+    border: 2px solid #e2ddea;
+    border-radius: 5px;
+    background-color: #51be51;
+    padding: 8px 10px;
+    min-height: 20px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+}
+
+.visualizarMarcacoes tr td .buttonNo{
+    font-size: 14px;
+    max-width: 90px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e2ddea;
+    border: 2px solid #e2ddea;
+    border-radius: 5px;
+    background-color: #f12405;
+    padding: 8px 10px;
+    min-height: 20px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+}
+
+.visualizarMarcacoes tr td .button:hover{
+    background-color: antiquewhite;
+}
+
+/* copied table */
+.main2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95%;
+    background-color: #dffee4;
+    margin-left: 25px;
+    margin-top: 40px;
+    padding: 2px 0; 
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 3px 3px rgba(50, 50, 50, 0, 77);
+    -moz-box-shadow: 3px 3px 3px 3px rgba(50, 50, 50, 0, 77);
+    box-shadow: 3px 3px 3px 3px rgba(50, 50, 50, 0, 77);
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+ .main2 table{
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ .main2 table tr th{
+    height: 56px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .25px;
+    text-align: left;
+    padding: 0 10px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+ .main2 table tr.item td{
+    border-bottom: 1px solid #c8cacc;
+    padding: 0 10px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+ .main2 table tr.item{
+    height: 60px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+ .main2 table tr td{
+    vertical-align: middle;
+    width: 20%;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+ }
+
+.main2 table tr td .buttonYes{
+    font-size: 14px;
+    max-width: 90px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e2ddea;
+    border: 2px solid #e2ddea;
+    border-radius: 5px;
+    background-color: #51be51;
+    padding: 8px 10px;
+    min-height: 20px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+
+}
+.main2 table tr td .buttonNo{
+    font-size: 14px;
+    max-width: 90px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e2ddea;
+    border: 2px solid #e2ddea;
+    border-radius: 5px;
+    background-color: #f12405;
+    padding: 8px 10px;
+    min-height: 20px;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+}
+
+.main2 table tr td .button:hover{
+    background-color: antiquewhite;
+}
+
