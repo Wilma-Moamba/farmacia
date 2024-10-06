@@ -1,0 +1,45 @@
+@font-face { font-family: 'GeneralSans-Variable'; src: url('../fonts/GeneralSans-Variable.woff2') format('woff2'), url('../fonts/GeneralSans-Variable.woff') format('woff'), url('../fonts/GeneralSans-Variable.ttf') format('truetype'); font-weight: 200 700; font-display: swap;font-style: normal;}
+:root{
+    --viridian: #6b9080ff;
+    --cambridge-blue: #a4c3b2ff;
+    --mint-green: #cce3deff;
+    --azure-web: #eaf4f4ff;
+    --mint-cream: #f6fff8ff;
+
+    --general-sans: 'GeneralSans-Variable';
+}
+body{
+    font-family: var(--general-sans);
+    background-color: var(--viridian);
+}
+.main-div{
+    background-color: var(--mint-cream);
+    margin: 30px;   
+    border-radius: 10px;
+}
+.navbar-items{
+    display: flex;
+    background-color: #FFFFFF;
+    padding: 15px;
+    justify-content: center;
+    list-style-type: none;
+    border-radius: 10px;
+}
+
+.navbar-items li {
+    flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.navbar-items li a {
+    text-decoration: none;
+    padding: 16px;
+    color: var(--viridian);
+}
+.navbar-items li a:hover {
+    background-color: var(--cambridge-blue);
+}
+.subMain-div{
+    margin-left: 17px;
+    
+}

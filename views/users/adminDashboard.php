@@ -24,6 +24,12 @@
                         <a href="adminDashboard.php">      Medicamentos</a>
                     </li>
                     <li>
+                        <a href="../medicine/visualizarStock.php">     Verificar Stock</a>
+                    </li>
+                    <li>
+                        <a href="../medicine/relatorioMedicamento.php">     Entradas e Saídas</a>
+                    </li>
+                    <li>
                         <a href="registarUtilizadores.php">     Registar Utilizadores</a>
                     </li>
                     <!-- <li>
@@ -118,7 +124,7 @@
                             die("Conexão falhou: " . $conn->connect_error);
                         }
                         
-                        $sql = "SELECT * FROM medicamentos";
+                        $sql = "SELECT * FROM medicamentos WHERE dataModificacao >= NOW() - INTERVAL 1 Hour";
                         $result = $conn->query($sql);
                         
                         if ($result->num_rows > 0) {

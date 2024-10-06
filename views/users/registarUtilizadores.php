@@ -17,11 +17,32 @@
 <body>
     <div class="main-div">
         <div class="navbar">
-            <ul class="navbar-items">
-                <li><a href="AdminDashboard.php">Medicamentos</a></li>
-                <li><a href="registarUtilizadores.php">Registar Utilizadores</a></li>
-                <li><a href='../../logout.php'>Logout</a></li>
-            </ul>
+        <ul class="navbar-items">
+                    <li>
+                        <a href="adminDashboard.php">      Medicamentos</a>
+                    </li>
+                    <li>
+                        <a href="../medicine/visualizarStock.php">     Verificar Stock</a>
+                    </li>
+                    <li>
+                        <a href="../medicine/relatorioMedicamento.php">     Entradas e Saídas</a>
+                    </li>
+                    <li>
+                        <a href="registarUtilizadores.php">     Registar Utilizadores</a>
+                    </li>
+                    <!-- <li>
+                        <a href="visualizarUtilizadores.php">     Visualizar utilizadores</a>
+                    </li>
+                    <li>
+                        <a href="registar.php">     Registar</a>
+                    </li>
+                    <li>
+                        <a href="visualizar.php">     Visualizar</a>
+                    </li> -->
+                    <li>
+                        <a href='../../logout.php'>Logout</a>
+                    </li>
+                </ul>
         </div>
         <div class="subMain-div">
             <div class="subSubMain-div">
