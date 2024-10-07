@@ -1,0 +1,44 @@
+table {
+	width: 100%;	
+	border-collapse: collapse;
+	overflow: hidden;
+	border-radius: 0.5em;
+	padding: 0.5em;
+}
+thead {
+	text-align: center;
+	color: #123456;
+	overflow: hidden;
+}
+th, td {
+	border: 1px solid #123456;
+}
+tbody > tr:hover {
+	background: #cce3deff;
+}
+td {
+	padding: 0.4em;
+}
+.action-column-head {
+	width: 15%;
+}
+.action-column-body {
+	text-align: center;
+}
+.action-column-body > form {
+	display: inline;
+}
+.action-button {
+	padding: 1em;
+	border: none;
+	border-radius: 0.5em;
+	color: white;
+	cursor: pointer;
+	width: 48%;
+}
+.update-button {
+	background: #ddaa11;
+}
+.remove-button {
+	background: #dd2a00;
+}

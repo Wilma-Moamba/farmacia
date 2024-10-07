@@ -16,6 +16,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'create' && $_SERVER['REQUEST_M
     $controller->edit($_GET['id']);
 } elseif (isset($_GET['action']) && $_GET['action'] == 'show' && isset($_GET['id'])) {
     $controller->show($_GET['id']);
-} else {
+}
+elseif (isset($_GET['action']) && $_GET['action'] == 'delete' &&  $_SERVER['REQUEST_METHOD'] == 'POST') {
+	$controller->delete($_POST['id']);
+}
+else {
     $controller->index();
 }

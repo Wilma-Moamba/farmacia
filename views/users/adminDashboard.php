@@ -93,7 +93,7 @@
                                         if($row['quantidade'] < 20){
                                             echo "<tr class='item'>";
                                             echo "<td>" . $row['id'] . "</td>";
-                                            echo "<td>" . $row['nome'] . "</td>";
+                                            echo "<td>" . $row['nomeAntibiotico'] . "</td>";
                                             echo "<td>" . $row['descricao'] . "</td>";
                                             echo "<td>" . $row['quantidade'] . "</td>";;
                                             echo "<td><button class='buttonYes' onclick='acrescentar(" . $row['id'] . ")'>Acrescentar</button></td>";

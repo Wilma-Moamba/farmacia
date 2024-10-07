@@ -1,4 +1,5 @@
 <?php
+
 class Medicine
 {
     public $id;
@@ -24,7 +25,7 @@ class Medicine
         while ($row = $result->fetch_assoc()) {
             $medicine = new Medicine();
             $medicine->id = $row['id'];
-            $medicine->name = $row['nome'];
+            $medicine->nome = $row['nomeAntibiotico'];
             $medicine->descricao = $row['descricao'];
             $medicine->quantidade = $row['quantidade'];
             $medicines[] = $medicine;
@@ -53,14 +54,20 @@ class Medicine
         $db = self::getConnection();
 
         if ($this->id) {
-            $stmt = $db->prepare("UPDATE medicamentos SET nome = ?, descricao = ?, quantidade = ? WHERE id = ?");
-            $stmt->bind_param("ssss", $this->nome, $this->descricao, $this->quantidade, $this->id);
+            $stmt = $db->prepare("UPDATE medicamentos SET nomeAntibiotico = ?, descricao = ?, quantidade = ? WHERE id = ?");
+            $stmt->bind_param("sssi", $this->nome, $this->descricao, $this->quantidade, $this->id);
         } else {
-            $stmt = $db->prepare("INSERT INTO medicamentos (nome, descricao, quantidade) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $this->nome, $this->descricao, $this->quantidade);
+            $stmt = $db->prepare("INSERT INTO medicamentos (nomeAntibiotico, descricao, quantidade) VALUES (?, ?, ?)");
+            $stmt->bind_param("ssi", $this->nome, $this->descricao, $this->quantidade);
         }
 
-        $stmt->execute();
+		try {
+			$stmt->execute(); 
+		}
+		catch(Exception $e) {
+			die($e->getMessage());
+		}
+
         $stmt->close();
         $db->close();
     }

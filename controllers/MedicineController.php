@@ -65,7 +65,8 @@
         {
             $medicine = Medicine::findById($id);
             $medicine->delete();
-            header('Location: /medicamentos');
+
+            header('Location:  ../views/medicine/visualizarStock.php');
         }
     }
 ?>

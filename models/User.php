@@ -51,4 +51,10 @@ class User {
     }
 }
 
+//$user = new User();
+
+//$user->register("Wady", "wady@gmail.com", "wady");
+//$user->register("Wady", "wadyadmin@gmail.com", "wady", "Admin");
+
+//echo '<span style="color: red;">Sucess</span>';
 ?>

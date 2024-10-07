@@ -1,5 +1,7 @@
 <?php 
-    include("../../sessionFile.php");
+	require("../../models/Medicine.php");
+    require("../../sessionFile.php");
+
     if ($_SESSION['role'] !== 'Admin') {
         header('Location: userDashboard.php'); 
         exit();
@@ -11,6 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../css/styleRelatorio.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="../../css/styleVisualizarStock.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
     <Script src="../../js/script.js"></Script>
     <title>Sistema</title>
@@ -45,7 +48,44 @@
                 </ul>
         </div>
         <div>
-            <h1>visualizar e todo crud</h1>
+			<table>
+				<thead>
+					<th>ID</th>					
+					<th>Nome</th>					
+					<th>Descrição</th>					
+					<th>Quantidade</th>					
+					<th class="action-column-head">Acção</th>					
+				</thead>
+
+				<tbody>
+					<?php
+						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+						$medicine  = new Medicine();		
+						$medicines = $medicine->getAll(); 
+
+						?>
+
+						<?php foreach($medicines as $data): ?>
+							<tr>
+								<td><?= $data->id ?></td>
+								<td><?= $data->nome ?></td>
+								<td><?= $data->descricao ?></td>
+								<td><?= $data->quantidade ?></td>
+								<td class="action-column-body">
+									<form action="../../routes/medicineRoutes.php?action=update" method="post">
+										<input type="hidden"  name="id" value="<?= $data->id ?>"> 
+										<button class="action-button update-button"  type="submit">Actualizar</button>
+									</form>
+									<form action="../../routes/medicineRoutes.php?action=delete" method="post">
+										<input type="hidden"  name="id" value="<?= $data->id ?>"> 
+										<button class="action-button remove-button" type="submit">Remover</button>
+									</form>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+				</tbody>
+			</table>
         </div>   
     </div>
 </body>
