@@ -80,10 +80,7 @@
 										<input type="hidden"  name="id" value="<?= $data->id ?>"> 
 										<button class="action-button update-button"  type="submit">Actualizar</button>
 									</form>
-									<!-- <form action="../../routes/medicineRoutes.php?action=delete" method="post">
-										<input type="hidden"  name="id" value="<?= $data->id ?>">  -->
 										<button class="action-button remove-button" onclick='confirmar(<?= $data->id ?>)' type="submit">Remover</button>
-									<!-- </form> -->
 								</td>
 							</tr>
 						<?php endforeach; ?>

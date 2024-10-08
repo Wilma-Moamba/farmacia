@@ -11,8 +11,6 @@
 body{
     font-family: var(--general-sans);
     background-color: var(--azure-web);
-    /* background-image: url('../images/background2.jpeg'); 
-    filter: blur(50%);  */
 } 
 h1 {
     color: var(--viridian);

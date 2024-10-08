@@ -95,18 +95,18 @@ class Medicine
         $db = self::getConnection();
         $sql = "SELECT 
                 m.nome,  
-                MAX(mov.data_movimento) as data, 
+                mov.data_movimento, 
                 SUM(CASE WHEN mov.tipo_movimento = 'entrada' THEN mov.quantidade ELSE 0 END) as total_entradas,
-                SUM(CASE WHEN mov.tipo_movimento = 'saida' THEN mov.quantidade ELSE 0 END) as total_saidas, data_movimento as data
+                SUM(CASE WHEN mov.tipo_movimento = 'saida' THEN mov.quantidade ELSE 0 END) as total_saidas
             FROM movimentos mov
             JOIN medicamentos m ON mov.id_medicamento = m.id
             WHERE mov.id_medicamento = ?
-            GROUP BY m.nome
-            HAVING total_entradas > 0 OR total_saidas > 0";
+            GROUP BY m.nome, mov.data_movimento
+            ORDER BY mov.data_movimento DESC";
         $stmt = $db->prepare($sql);
         $stmt->bind_param("i", $id_medicamento);
         $stmt->execute();
-        $result = $stmt->get_result()->fetch_assoc();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         $stmt->close();
         
         return $result;

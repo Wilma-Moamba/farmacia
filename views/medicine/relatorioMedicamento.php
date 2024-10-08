@@ -61,32 +61,34 @@
 				</thead>
 
 				<tbody>
-					<?php
-						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                <?php
+                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-						$medicine  = new Medicine();		
-						$medicines = $medicine->getAll(); 
+                    $medicine  = new Medicine();		
+                    $medicines = $medicine->getAll(); 
+                    ?>
 
-						?>
+                    <?php foreach($medicines as $data): 
+                        $movimentacoes = $medicine->getMovimentacoes($data->id);
 
-<?php foreach($medicines as $data): 
-    // Obter movimentações
-    $movimentacoes = $medicine->getMovimentacoes($data->id);
+                        // Verifica se há movimentações
+                        if ($movimentacoes):  
+                            // Itera sobre todas as movimentações retornadas para o medicamento
+                            foreach ($movimentacoes as $movimento): 
+                    ?>
+                                <tr>
+                                    <td><?= $data->id ?></td>
+                                    <td><?= isset($movimento['data_movimento']) ? $movimento['data_movimento'] : '-' ?></td>
+                                    <td><?= $data->nome ?></td>
+                                    <td><?= isset($movimento['total_entradas']) ? $movimento['total_entradas'] : '0' ?></td>
+                                    <td><?= isset($movimento['total_saidas']) ? $movimento['total_saidas'] : '0' ?></td>   
+                                </tr>
+                    <?php 
+                            endforeach;  
+                        endif;  
+                    endforeach; 
+                    ?>
 
-    // Verifica se o resultado não é nulo (ou seja, se o medicamento tem movimentações)
-    if ($movimentacoes && ($movimentacoes['total_entradas'] > 0 || $movimentacoes['total_saidas'] > 0)):  
-?>
-    <tr>
-        <td><?= $data->id ?></td>
-        <td><?= isset($movimentacoes['data']) ? $movimentacoes['data'] : '-' ?></td>
-        <td><?= $data->nome ?></td>
-        <td><?= isset($movimentacoes['total_entradas']) ? $movimentacoes['total_entradas'] : '0' ?></td>
-        <td><?= isset($movimentacoes['total_saidas']) ? $movimentacoes['total_saidas'] : '0' ?></td>   
-    </tr>
-<?php 
-    endif;  // Exibir apenas medicamentos com movimentações
-endforeach; 
-?>
 				</tbody>
 			</table>
         </div>   
