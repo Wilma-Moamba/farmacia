@@ -27,6 +27,9 @@
                         <a href="../medicine/visualizarStock.php">     Verificar Stock</a>
                     </li>
                     <li>
+                        <a href="../medicine/actualizarStock.php">     Actualizar Stock</a>
+                    </li> 
+                    <li>
                         <a href="../medicine/relatorioMedicamento.php">     Entradas e Saídas</a>
                     </li>
                     <li>
@@ -93,7 +96,7 @@
                                         if($row['quantidade'] < 20){
                                             echo "<tr class='item'>";
                                             echo "<td>" . $row['id'] . "</td>";
-                                            echo "<td>" . $row['nomeAntibiotico'] . "</td>";
+                                            echo "<td>" . $row['nome'] . "</td>";
                                             echo "<td>" . $row['descricao'] . "</td>";
                                             echo "<td>" . $row['quantidade'] . "</td>";;
                                             echo "<td><button class='buttonYes' onclick='acrescentar(" . $row['id'] . ")'>Acrescentar</button></td>";
@@ -124,7 +127,7 @@
                             die("Conexão falhou: " . $conn->connect_error);
                         }
                         
-                        $sql = "SELECT * FROM medicamentos WHERE dataModificacao >= NOW() - INTERVAL 1 Hour";
+                        $sql = "SELECT * FROM medicamentos WHERE dataModificacao >= NOW() - INTERVAL 1 DAY";
                         $result = $conn->query($sql);
                         
                         if ($result->num_rows > 0) {

@@ -1,3 +1,13 @@
+@font-face { font-family: 'GeneralSans-Variable'; src: url('../fonts/GeneralSans-Variable.woff2') format('woff2'), url('../fonts/GeneralSans-Variable.woff') format('woff'), url('../fonts/GeneralSans-Variable.ttf') format('truetype'); font-weight: 200 700; font-display: swap;font-style: normal;}
+:root{
+    --viridian: #6b9080ff;
+    --cambridge-blue: #a4c3b2ff;
+    --mint-green: #cce3deff;
+    --azure-web: #eaf4f4ff;
+    --mint-cream: #f6fff8ff;
+
+    --general-sans: 'GeneralSans-Variable';
+}
 table {
 	width: 100%;	
 	border-collapse: collapse;
@@ -42,3 +52,19 @@ td {
 .remove-button {
 	background: #dd2a00;
 }
+.action-column-body > button {
+	display: inline;
+}
+.buttonYes{
+    background-color: var(--viridian);
+}
+.buttonNo{
+    background-color: #db1919c1;
+}
+.buttonYes:hover{
+  background-color: #51be51;
+}
+.buttonNo:hover{
+    background-color: #f12405;
+}
+

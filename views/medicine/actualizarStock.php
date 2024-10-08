@@ -76,14 +76,8 @@
 								<td><?= $data->descricao ?></td>
 								<td><?= $data->quantidade ?></td>
 								<td class="action-column-body">
-									<form action="../../routes/medicineRoutes.php?action=update" method="post">
-										<input type="hidden"  name="id" value="<?= $data->id ?>"> 
-										<button class="action-button update-button"  type="submit">Actualizar</button>
-									</form>
-									<!-- <form action="../../routes/medicineRoutes.php?action=delete" method="post">
-										<input type="hidden"  name="id" value="<?= $data->id ?>">  -->
-										<button class="action-button remove-button" onclick='confirmar(<?= $data->id ?>)' type="submit">Remover</button>
-									<!-- </form> -->
+                                    <button class='action-button buttonYes' onclick='acrescentar(<?= $data->id ?>)'>Adicionar</button>
+                                    <button class='action-button buttonNo' onclick='reduzir(<?= $data->id ?>)'>Reduzir</button>
 								</td>
 							</tr>
 						<?php endforeach; ?>

@@ -1,5 +1,7 @@
 <?php 
-    include("../../sessionFile.php");
+	require("../../models/Medicine.php");
+    require("../../sessionFile.php");
+
     if ($_SESSION['role'] !== 'Admin') {
         header('Location: userDashboard.php'); 
         exit();
@@ -11,6 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../css/styleRelatorio.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="../../css/styleVisualizarStock.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
     <Script src="../../js/script.js"></Script>
     <title>Sistema</title>
@@ -26,6 +29,9 @@
                     <li>
                         <a href="visualizarStock.php">     Verificar Stock</a>
                     </li>
+                    <li>
+                        <a href="actualizarStock.php">     Actualizar Stock</a>
+                    </li> 
                     <li>
                         <a href="relatorioMedicamento.php">     Entradas e Saídas</a>
                     </li>
@@ -45,7 +51,44 @@
                 </ul>
         </div>
         <div>
-            <h1>Relatorio Saidas entradas</h1>
+			<table>
+				<thead>
+					<th>ID</th>					
+					<th>Data</th>					
+					<th>Nome</th>					
+					<th>Entradas</th>					
+					<th>Saídas</th>					
+				</thead>
+
+				<tbody>
+					<?php
+						mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+						$medicine  = new Medicine();		
+						$medicines = $medicine->getAll(); 
+
+						?>
+
+<?php foreach($medicines as $data): 
+    // Obter movimentações
+    $movimentacoes = $medicine->getMovimentacoes($data->id);
+
+    // Verifica se o resultado não é nulo (ou seja, se o medicamento tem movimentações)
+    if ($movimentacoes && ($movimentacoes['total_entradas'] > 0 || $movimentacoes['total_saidas'] > 0)):  
+?>
+    <tr>
+        <td><?= $data->id ?></td>
+        <td><?= isset($movimentacoes['data']) ? $movimentacoes['data'] : '-' ?></td>
+        <td><?= $data->nome ?></td>
+        <td><?= isset($movimentacoes['total_entradas']) ? $movimentacoes['total_entradas'] : '0' ?></td>
+        <td><?= isset($movimentacoes['total_saidas']) ? $movimentacoes['total_saidas'] : '0' ?></td>   
+    </tr>
+<?php 
+    endif;  // Exibir apenas medicamentos com movimentações
+endforeach; 
+?>
+				</tbody>
+			</table>
         </div>   
     </div>
 </body>

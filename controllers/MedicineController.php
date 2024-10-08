@@ -44,13 +44,12 @@
         
                 if ($action === 'acrescentar') {
                     $medicine->quantidade += $quantidade;
+                    $medicine->registrarMovimento($id, $quantidade, 'entrada'); 
                 } 
                 elseif ($action === 'reduzir' && $medicine->quantidade >= $quantidade) {
                     $medicine->quantidade -= $quantidade;
+                    $medicine->registrarMovimento($id, $quantidade, 'saida'); 
                 }
-        
-                // $medicine->nome = $_POST['nome'];
-                // $medicine->descricao = $_POST['descricao'];
                 
                 $medicine->save();
                 echo "Quantidade atualizada com sucesso!";
@@ -65,8 +64,8 @@
         {
             $medicine = Medicine::findById($id);
             $medicine->delete();
-
-            header('Location:  ../views/medicine/visualizarStock.php');
+            echo 'Item eliminado com sucesso';
         }
     }
 ?>
+   
