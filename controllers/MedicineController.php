@@ -37,6 +37,9 @@
     
         public function update($id) {
             $medicine = Medicine::findById($id);
+			$nome = $_POST['nome'];
+			$descricao = $_POST['descricao'];
+			$quantidade = $_POST['quantidade'];
 
             if (isset($_POST['action']) && isset($_POST['quantidade']) && is_numeric($_POST['quantidade'])) {
                 $quantidade = $_POST['quantidade'];
@@ -54,7 +57,17 @@
                 $medicine->save();
                 echo "Quantidade atualizada com sucesso!";
                 exit();
-            } else {
+			}
+			elseif (isset($_POST['id'])) {
+				$medicine->nome = $nome;
+				$medicine->id = $id;
+				$medicine->quantidade = $quantidade;
+				$medicine->descricao = $descricao;	
+				$medicine->save();
+				header('Location: ../views/medicine/visualizarStock.php');
+				exit();
+			}	
+			else {
                 echo "Dados inválidos ou ação não especificada.";
             }
         }

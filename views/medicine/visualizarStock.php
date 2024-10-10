@@ -76,11 +76,13 @@
 								<td><?= $data->descricao ?></td>
 								<td><?= $data->quantidade ?></td>
 								<td class="action-column-body">
-									<form action="../../routes/medicineRoutes.php?action=update" method="post">
+									<form action="../../views/medicine/actualizarMedicamento.php" method="get">
 										<input type="hidden"  name="id" value="<?= $data->id ?>"> 
 										<button class="action-button update-button"  type="submit">Actualizar</button>
 									</form>
+									</form>
 										<button class="action-button remove-button" onclick='confirmar(<?= $data->id ?>)' type="submit">Remover</button>
+									</form>
 								</td>
 							</tr>
 						<?php endforeach; ?>

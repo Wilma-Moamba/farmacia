@@ -28,7 +28,7 @@ class Medicine
             $medicine->nome = $row['nome'];
             $medicine->descricao = $row['descricao'];
             $medicine->quantidade = $row['quantidade'];
-            $medicine->dataModificacao = $row['dataModificacao'];
+//            $medicine->dataModificacao = $row['dataModificacao'];
             $medicines[] = $medicine;
         }
 

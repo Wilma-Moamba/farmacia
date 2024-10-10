@@ -53,112 +53,107 @@
                 <div class="subSubMain-div">
                     <div class="blocos">
                         <div class="registar">
-                        <form action="../../routes/medicineRoutes.php?action=create" method="post" >  
-                            <div class="registarItem">
-                                <legend>Nome</legend>
-                                <input type="text" class="form-control" id="nomeAntibiotico"  name="nome">
-                            </div>
-                            <div class="registarItem">
-                                    <legend>Descrição</legend>
-                                    <input type="text" class="form-control" id="miligramas" name="descricao">
-                            </div>    
-                            <div class="registarItem">
-                                <legend>Quantidade</legend>
-                                <input type="text" class="form-control" id="quantidade" name="quantidade">
-                            </div>
-                            <div class="registarItem">
-                                <button type="submit" id="buttonRegistar">Registar</button>
-                            </div>
-                        </form>
+							<form action="../../routes/medicineRoutes.php?action=create" method="post" >  
+								<div class="registarItem">
+									<legend>Nome</legend>
+									<input type="text" class="form-control" id="nomeAntibiotico"  name="nome">
+								</div>
+								<div class="registarItem">
+										<legend>Descrição</legend>
+										<input type="text" class="form-control" id="miligramas" name="descricao">
+								</div>    
+								<div class="registarItem">
+									<legend>Quantidade</legend>
+									<input type="text" class="form-control" id="quantidade" name="quantidade">
+								</div>
+								<div class="registarItem">
+									<button type="submit" id="buttonRegistar">Registar</button>
+								</div>
+							</form>
                         </div>
                         <div class="notificacoes">
                             <h4>Medicamentos escassos</h4>
                             <?php
-                                $servername = "localhost";
-                                $username = "root";
-                                $password = "";
-                                $dbname = "sistema";
-                                
-                                $conn = new mysqli($servername, $username, $password, $dbname);
-                                
-                                if ($conn->connect_error) {
-                                    die("Conexão falhou: " . $conn->connect_error);
-                                }
-                                
-                                $sql = "SELECT * FROM medicamentos";
-                                $result = $conn->query($sql);
-                                
-                                if ($result->num_rows > 0) {
-                                    echo "<table>";
-                                    echo "<tr class='item'><th>ID</th><th>Nome</th><th>Descrição</th><th>Quantidade</th></tr>";
-                                    
-                                    while ($row = $result->fetch_assoc()) {
-                                        if($row['quantidade'] < 20){
-                                            echo "<tr class='item'>";
-                                            echo "<td>" . $row['id'] . "</td>";
-                                            echo "<td>" . $row['nome'] . "</td>";
-                                            echo "<td>" . $row['descricao'] . "</td>";
-                                            echo "<td>" . $row['quantidade'] . "</td>";;
-                                            echo "<td><button class='buttonYes' onclick='acrescentar(" . $row['id'] . ")'>Acrescentar</button></td>";
-                                            echo "<td><button class='buttonNo' onclick='reduzir(" . $row['id'] . ")'>Reduzir</button></td>";
-                                            echo "</tr>";
-                                        }
-                                    }
-                                    
-                                    echo "</table>";
-                                } else {
-                                    echo "Nenhum registro encontrado.";
-                                }
-                                
-                                $conn->close();
-                            ?>
-                        </div>
-                    </div>
-                    <div class="gerir">
-                    <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "sistema";
-                        
-                        $conn = new mysqli($servername, $username, $password, $dbname);
-                        
-                        if ($conn->connect_error) {
-                            die("Conexão falhou: " . $conn->connect_error);
-                        }
-                        
-                        $sql = "SELECT * FROM medicamentos WHERE dataModificacao >= NOW() - INTERVAL 1 DAY";
-                        $result = $conn->query($sql);
-                        
-                        if ($result->num_rows > 0) {
-                            echo "<table>";
-                            echo "<tr class='item'><th>ID</th><th>Nome</th><th>Descrição</th><th>Quantidade</th></tr>";
-                            
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<tr class='item'>";
-                                echo "<td>" . $row['id'] . "</td>";
-                                echo "<td>" . $row['nome'] . "</td>";
-                                echo "<td>" . $row['descricao'] . "</td>";
-                                echo "<td>" . $row['quantidade'] . "</td>";;
-                                echo "<td><button class='buttonYes' onclick='acrescentar(" . $row['id'] . ")'>Acrescentar</button></td>";
-                                echo "<td><button class='buttonNo' onclick='reduzir(" . $row['id'] . ")'>Reduzir</button></td>";
-                                echo "</tr>";
-                            }
-                            
-                            echo "</table>";
-                        } else {
-                            echo "Nenhum registro encontrado.";
-                        }  
-                        $conn->close();
-                    ?>
-                            
-                    </div>
-                </div>    
-            </div>       
-        </div>
-    </div>
-    <?php
-       
-    ?>
-</body>
+							$servername = "localhost";
+							$username = "root";
+							$password = "";
+							$dbname = "sistema";
+							
+							$conn = new mysqli($servername, $username, $password, $dbname);
+							
+							if ($conn->connect_error) {
+								die("Conexão falhou: " . $conn->connect_error);
+							}
+							
+							$sql = "SELECT * FROM medicamentos";
+							$result = $conn->query($sql);
+							
+							if ($result->num_rows > 0) {
+								echo "<table>";
+								echo "<tr class='item'><th>ID</th><th>Nome</th><th>Descrição</th><th>Quantidade</th></tr>";
+								
+								while ($row = $result->fetch_assoc()) {
+									if($row['quantidade'] < 20){
+										echo "<tr class='item'>";
+										echo "<td>" . $row['id'] . "</td>";
+										echo "<td>" . $row['nome'] . "</td>";
+										echo "<td>" . $row['descricao'] . "</td>";
+										echo "<td>" . $row['quantidade'] . "</td>";;
+										echo "<td><button class='buttonYes' onclick='acrescentar(" . $row['id'] . ")'>Acrescentar</button></td>";
+										echo "<td><button class='buttonNo' onclick='reduzir(" . $row['id'] . ")'>Reduzir</button></td>";
+										echo "</tr>";
+									}
+								}
+								
+								echo "</table>";
+							} else {
+								echo "Nenhum registro encontrado.";
+							}
+							
+							$conn->close();
+							?>
+						</div>
+						<div class="gerir">
+							<?php
+								$servername = "localhost";
+								$username = "root";
+								$password = "";
+								$dbname = "sistema";
+								
+								$conn = new mysqli($servername, $username, $password, $dbname);
+								
+								if ($conn->connect_error) {
+									die("Conexão falhou: " . $conn->connect_error);
+								}
+								
+								$sql = "SELECT * FROM medicamentos WHERE dataModificacao >= NOW() - INTERVAL 1 DAY";
+								$result = $conn->query($sql);
+								
+								if ($result->num_rows > 0) {
+									echo "<table>";
+									echo "<tr class='item'><th>ID</th><th>Nome</th><th>Descrição</th><th>Quantidade</th></tr>";
+									
+									while ($row = $result->fetch_assoc()) {
+										echo "<tr class='item'>";
+										echo "<td>" . $row['id'] . "</td>";
+										echo "<td>" . $row['nome'] . "</td>";
+										echo "<td>" . $row['descricao'] . "</td>";
+										echo "<td>" . $row['quantidade'] . "</td>";;
+										echo "<td><button class='buttonYes' onclick='acrescentar(" . $row['id'] . ")'>Acrescentar</button></td>";
+										echo "<td><button class='buttonNo' onclick='reduzir(" . $row['id'] . ")'>Reduzir</button></td>";
+										echo "</tr>";
+									}
+									
+									echo "</table>";
+								} else {
+									echo "Nenhum registro encontrado.";
+								}  
+								$conn->close();
+							?>
+						</div>
+					</div>    
+				</div>       
+			</div>
+		</div>
+	</body>
 </html>
