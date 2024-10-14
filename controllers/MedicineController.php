@@ -37,6 +37,9 @@
     
         public function update($id) {
             $medicine = Medicine::findById($id);
+			$nome = $_POST['nome'];
+			$descricao = $_POST['descricao'];
+			$quantidade = $_POST['quantidade'];
 
             if (isset($_POST['action']) && isset($_POST['quantidade']) && is_numeric($_POST['quantidade'])) {
                 $quantidade = $_POST['quantidade'];
@@ -44,18 +47,27 @@
         
                 if ($action === 'acrescentar') {
                     $medicine->quantidade += $quantidade;
+                    $medicine->registrarMovimento($id, $quantidade, 'entrada'); 
                 } 
                 elseif ($action === 'reduzir' && $medicine->quantidade >= $quantidade) {
                     $medicine->quantidade -= $quantidade;
+                    $medicine->registrarMovimento($id, $quantidade, 'saida'); 
                 }
-        
-                // $medicine->nome = $_POST['nome'];
-                // $medicine->descricao = $_POST['descricao'];
                 
                 $medicine->save();
                 echo "Quantidade atualizada com sucesso!";
                 exit();
-            } else {
+			}
+			elseif (isset($_POST['id'])) {
+				$medicine->nome = $nome;
+				$medicine->id = $id;
+				$medicine->quantidade = $quantidade;
+				$medicine->descricao = $descricao;	
+				$medicine->save();
+				header('Location: ../views/medicine/visualizarStock.php');
+				exit();
+			}	
+			else {
                 echo "Dados inválidos ou ação não especificada.";
             }
         }
@@ -65,7 +77,8 @@
         {
             $medicine = Medicine::findById($id);
             $medicine->delete();
-            header('Location: /medicamentos');
+            echo 'Item eliminado com sucesso';
         }
     }
 ?>
+   

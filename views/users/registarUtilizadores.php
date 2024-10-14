@@ -25,6 +25,9 @@
                         <a href="../medicine/visualizarStock.php">     Verificar Stock</a>
                     </li>
                     <li>
+                        <a href="../medicine/actualizarStock.php">     Actualizar Stock</a>
+                    </li> 
+                    <li>
                         <a href="../medicine/relatorioMedicamento.php">     Entradas e Saídas</a>
                     </li>
                     <li>

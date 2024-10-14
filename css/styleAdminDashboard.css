@@ -17,9 +17,6 @@ body{
     margin: 30px;   
     border-radius: 10px;
 }
-.navbar{
-
-}
 .navbar-items{
     display: flex;
     background-color: #FFFFFF;

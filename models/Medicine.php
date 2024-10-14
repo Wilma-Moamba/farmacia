@@ -1,4 +1,5 @@
 <?php
+
 class Medicine
 {
     public $id;
@@ -24,9 +25,10 @@ class Medicine
         while ($row = $result->fetch_assoc()) {
             $medicine = new Medicine();
             $medicine->id = $row['id'];
-            $medicine->name = $row['nome'];
+            $medicine->nome = $row['nome'];
             $medicine->descricao = $row['descricao'];
             $medicine->quantidade = $row['quantidade'];
+//            $medicine->dataModificacao = $row['dataModificacao'];
             $medicines[] = $medicine;
         }
 
@@ -54,13 +56,19 @@ class Medicine
 
         if ($this->id) {
             $stmt = $db->prepare("UPDATE medicamentos SET nome = ?, descricao = ?, quantidade = ? WHERE id = ?");
-            $stmt->bind_param("ssss", $this->nome, $this->descricao, $this->quantidade, $this->id);
+            $stmt->bind_param("sssi", $this->nome, $this->descricao, $this->quantidade, $this->id);
         } else {
             $stmt = $db->prepare("INSERT INTO medicamentos (nome, descricao, quantidade) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $this->nome, $this->descricao, $this->quantidade);
+            $stmt->bind_param("ssi", $this->nome, $this->descricao, $this->quantidade);
         }
 
-        $stmt->execute();
+		try {
+			$stmt->execute(); 
+		}
+		catch(Exception $e) {
+			die($e->getMessage());
+		}
+
         $stmt->close();
         $db->close();
     }
@@ -74,8 +82,34 @@ class Medicine
         $stmt->close();
         $db->close();
     }
-
-
-
+    public function registrarMovimento($id_medicamento, $quantidade, $tipo_movimento) {
+        $db = self::getConnection();
+        $sql = "INSERT INTO movimentos (id_medicamento, quantidade, tipo_movimento, data_movimento) VALUES (?, ?, ?, NOW())";
+        $stmt = $db->prepare($sql);
+        $stmt->bind_param("iis", $id_medicamento, $quantidade, $tipo_movimento);
+        $stmt->execute();
+        $stmt->close();
+    }
+    
+    public function getMovimentacoes($id_medicamento) {
+        $db = self::getConnection();
+        $sql = "SELECT 
+                m.nome,  
+                mov.data_movimento, 
+                SUM(CASE WHEN mov.tipo_movimento = 'entrada' THEN mov.quantidade ELSE 0 END) as total_entradas,
+                SUM(CASE WHEN mov.tipo_movimento = 'saida' THEN mov.quantidade ELSE 0 END) as total_saidas
+            FROM movimentos mov
+            JOIN medicamentos m ON mov.id_medicamento = m.id
+            WHERE mov.id_medicamento = ?
+            GROUP BY m.nome, mov.data_movimento
+            ORDER BY mov.data_movimento DESC";
+        $stmt = $db->prepare($sql);
+        $stmt->bind_param("i", $id_medicamento);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        
+        return $result;
+    }
 }
 ?>
