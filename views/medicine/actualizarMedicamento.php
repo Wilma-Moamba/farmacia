@@ -1,7 +1,11 @@
 
 <?php 
     include("../../sessionFile.php");
+<<<<<<< HEAD
 	require_once('../../models/Medicine.php');
+=======
+	require($_SERVER['DOCUMENT_ROOT'] . '/farmacia/models/Medicine.php');
+>>>>>>> 27a0976fd74f2da7bf4d92836d75f75226dabc13
 	
 	$id = $_GET['id'];
 	$medicine = new Medicine();
