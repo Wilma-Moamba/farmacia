@@ -36,6 +36,9 @@
                         <a href="relatorioMedicamento.php">     Entradas e Saídas</a>
                     </li>
                     <li>
+                        <a href="relatorio.php">     Relatório</a>
+                    </li>
+                    <li>
                         <a href="../users/registarUtilizadores.php">     Registar Utilizadores</a>
                     </li>
                     <!--
@@ -70,10 +73,7 @@
 
                     <?php foreach($medicines as $data): 
                         $movimentacoes = $medicine->getMovimentacoes($data->id);
-
-                        // Verifica se há movimentações
                         if ($movimentacoes):  
-                            // Itera sobre todas as movimentações retornadas para o medicamento
                             foreach ($movimentacoes as $movimento): 
                     ?>
                                 <tr>

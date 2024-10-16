@@ -31,6 +31,9 @@
                         <a href="../medicine/relatorioMedicamento.php">     Entradas e Saídas</a>
                     </li>
                     <li>
+                        <a href="../medicine/relatorio.php">     Relatório</a>
+                    </li>
+                    <li>
                         <a href="registarUtilizadores.php">     Registar Utilizadores</a>
                     </li>
                     <!-- <li>

@@ -1,11 +1,7 @@
 
 <?php 
     include("../../sessionFile.php");
-<<<<<<< HEAD
 	require_once('../../models/Medicine.php');
-=======
-	require($_SERVER['DOCUMENT_ROOT'] . '/farmacia/models/Medicine.php');
->>>>>>> 27a0976fd74f2da7bf4d92836d75f75226dabc13
 	
 	$id = $_GET['id'];
 	$medicine = new Medicine();
@@ -29,7 +25,7 @@
 </head>
 <body>
     <div class="main-div">
-        <div class="navbar">
+        <!-- <div class="navbar">
             
                 <ul class="navbar-items">
                     <li>
@@ -45,22 +41,16 @@
                         <a href="../medicine/relatorioMedicamento.php">     Entradas e Saídas</a>
                     </li>
                     <li>
+                        <a href="../medicine/relatorio.php">     Relatório</a>
+                    </li>
+                    <li>
                         <a href="registarUtilizadores.php">     Registar Utilizadores</a>
                     </li>
-                    <!-- <li>
-                        <a href="visualizarUtilizadores.php">     Visualizar utilizadores</a>
-                    </li>
-                    <li>
-                        <a href="registar.php">     Registar</a>
-                    </li>
-                    <li>
-                        <a href="visualizar.php">     Visualizar</a>
-                    </li> -->
                     <li>
                         <a href='../../logout.php'>Logout</a>
                     </li>
                 </ul>
-        </div>
+        </div> -->
             <div class="subMain-div">
                 <div class="subSubMain-div">
                     <div class="blocos">

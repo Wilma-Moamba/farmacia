@@ -36,15 +36,11 @@
                         <a href="relatorioMedicamento.php">     Entradas e Saídas</a>
                     </li>
                     <li>
+                        <a href="relatorio.php">     Relatório</a>
+                    </li>
+                    <li>
                         <a href="../users/registarUtilizadores.php">     Registar Utilizadores</a>
                     </li>
-                    <!--
-                    <li>
-                        <a href="registar.php">     Registar</a>
-                    </li>
-                    <li>
-                        <a href="visualizar.php">     Visualizar</a>
-                    </li> -->
                     <li>
                         <a href='../../logout.php'>Logout</a>
                     </li>

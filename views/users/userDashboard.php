@@ -23,18 +23,6 @@
                     <li>
                         <a href="userDashboard.php">      Medicamentos</a>
                     </li>
-                    <!-- <li>
-                        <a href="registarUtilizadores.php">     Registar Utilizadores</a>
-                    </li>
-                    <li>
-                        <a href="visualizarUtilizadores.php">     Visualizar utilizadores</a>
-                    </li> -->
-                    <!-- <li>
-                        <a href="registar.php">     Registar</a>
-                    </li>
-                    <li>
-                        <a href="visualizar.php">     Visualizar</a>
-                    </li> -->
                     <li>
                         <a href='../../logout.php'>Logout</a>
                     </li>

@@ -90,6 +90,39 @@ class Medicine
         $stmt->execute();
         $stmt->close();
     }
+
+    // public function getMovimentacoes($id_medicamento, $specific_date = null) {
+    //     $db = self::getConnection();
+        
+    //     // SQL para obter entradas e saídas agrupadas pela data
+    //     $sql = "SELECT 
+    //                 DATE(mov.data_movimento) AS data_movimento, 
+    //                 SUM(CASE WHEN mov.tipo_movimento = 'entrada' THEN mov.quantidade ELSE 0 END) AS total_entradas,
+    //                 SUM(CASE WHEN mov.tipo_movimento = 'saida' THEN mov.quantidade ELSE 0 END) AS total_saidas
+    //             FROM movimentos mov
+    //             JOIN medicamentos m ON mov.id_medicamento = m.id";
+    
+    //     // Adicionar condição para data específica
+    //     if ($specific_date) {
+    //         $sql .= " WHERE DATE(mov.data_movimento) = ?";
+    //     }
+    
+    //     $sql .= " GROUP BY DATE(mov.data_movimento) 
+    //               ORDER BY DATE(mov.data_movimento) DESC";
+    
+    //     $stmt = $db->prepare($sql);
+        
+    //     // Se uma data específica for fornecida, vinculá-la
+    //     if ($specific_date) {
+    //         $stmt->bind_param("s", $specific_date);
+    //     }
+    
+    //     $stmt->execute();
+    //     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    //     $stmt->close();
+        
+    //     return $result;
+    // }
     
     public function getMovimentacoes($id_medicamento) {
         $db = self::getConnection();
@@ -101,7 +134,7 @@ class Medicine
             FROM movimentos mov
             JOIN medicamentos m ON mov.id_medicamento = m.id
             WHERE mov.id_medicamento = ?
-            GROUP BY m.nome, mov.data_movimento
+            GROUP BY mov.data_movimento, m.nome
             ORDER BY mov.data_movimento DESC";
         $stmt = $db->prepare($sql);
         $stmt->bind_param("i", $id_medicamento);
